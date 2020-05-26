@@ -78,16 +78,28 @@ def tfidf_vect(all_data, vectors_path):
 	return feature_names, denselist
 
 def collector(path, labels, documents):
-	os.system('mkdir '+path+'/classified')
 	all_classes = {}
 	for i in range(max(labels)+1):
 		all_classes.update({i: []})
+		if platform.system() == 'Windows':
+			os.system('mkdir '+path.replace('/', '\\')+'\\classified\\'+str(i))
+		else:
+			os.system('mkdir '+path+'\\classified\\'+str(i))
 	for label, doc in zip(labels, documents):
 		all_classes[label].append(doc)
 
 	os_type = platform.system()
 	if os_type == 'Windows':
-		for class_n, files in all_classes.items():
+		copy = 'copy'
+	else:
+		copy = 'cp'
+	for class_n, files in all_classes.items():
+		for file in files:
+			f_path = copy+' '+path+'/"'+file+'" '+path+'/classified/'+str(class_n)+'/"'+file+'"'
+			if os_type == 'Windows':
+				f_path = f_path.replace('/', '\\')
+			os.system(f_path)
+
 
 
 
@@ -106,10 +118,4 @@ def main():
 	collector(path, labels, documents)
 
 	
-path, f_pgs, l_pgs, path_o, vectors_path, n_clusters = './books', 15, 20, './txts', 'vectors.csv', 4
-all_data, documents = folder_to_txt(path, f_pgs, l_pgs, path_o)
-save_txt(path_o, all_data, documents)
-all_data = only_text(all_data)
-feature_names, denselist = tfidf_vect(all_data, vectors_path)
-labels = k_means(denselist, n_clusters)
-collector(path, labels, documents)
+main()
