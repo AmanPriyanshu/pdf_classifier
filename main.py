@@ -117,5 +117,5 @@ def main():
 	labels = k_means(denselist, n_clusters)
 	collector(path, labels, documents)
 
-	
-main()
+if __name__ == '__main__':
+	main()
