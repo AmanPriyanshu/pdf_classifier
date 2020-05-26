@@ -9,3 +9,5 @@ After that copy all unclassified pdf's to one folder inside the cloned repositor
 
 ## Example Output:
 ![relative path is wrong](https://github.com/AmanPriyanshu/pdf_classifier/blob/master/example.PNG)
+
+Correctly differentiated and classified between two ML papers, a covid 19 paper and finally 3 solar corona papers.
