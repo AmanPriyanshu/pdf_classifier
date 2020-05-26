@@ -1,0 +1,606 @@
+P1: 1/1
+
+P2: 1/2
+
+QC: 1/1
+
+T1: 2
+
+FRONT-7T
+
+Rosen-2311T MHIA017-Rosen-v5.cls
+
+May 13, 2011
+
+10:21
+
+xiv
+
+Preface
+
+mistakes students make in discrete mathematics, plus sample tests and a sample crib sheet for
+each chapter designed to help students prepare for exams.
+
+(ISBN-10: 0-07-735350-1)
+
+(ISBN-13: 978-0-07-735350-6)
+
+INSTRUCTORS RESOURCE GUIDE
+This manual, available on the website and in
+printed form by request for instructors, contains full solutions to even-numbered exercises in
+the text. Suggestions on how to teach the material in each chapter of the book are provided,
+including the points to stress in each section and how to put the material into perspective. It
+also offers sample tests for each chapter and a test bank containing over 1500 exam questions to
+choose from. Answers to all sample tests and test bank questions are included. Finally, several
+sample syllabi are presented for courses with differing emphases and student ability levels.
+
+(ISBN-10: 0-07-735349-8)
+
+(ISBN-13: 978-0-07-735349-0)
+
+Acknowledgments
+
+I would like to thank the many instructors and students at a variety of schools who have used
+this book and provided me with their valuable feedback and helpful suggestions. Their input
+has made this a much better book than it would have been otherwise. I especially want to thank
+Jerrold Grossman, Jean-Claude Evard, and Georgia Mederer for their technical reviews of the
+seventh edition and their eagle eyes, which have helped ensure the accuracy of this book. I
+also appreciate the help provided by all those who have submitted comments via the website.
+
+I thank the reviewers of this seventh and the six previous editions. These reviewers have
+provided much helpful criticism and encouragement to me. I hope this edition lives up to their
+high expectations.
+
+Reviewers for the Seventh Edition
+
+Philip Barry
+
+T.J. Duda
+
+Jerry Ianni
+
+University of Minnesota, Minneapolis
+
+Columbus State Community College
+
+LaGuardia Community College
+
+Bruce Elenbogen
+
+Ravi Janardan
+
+University of Michigan, Dearborn
+
+University of Minnesota, Minneapolis
+
+Nanyang Technological University
+
+Wright State University
+
+University of California, Los Angeles
+
+University of North Florida
+
+Miklos Bona
+
+University of Florida
+
+Kirby Brown
+
+Queens College
+
+John Carter
+
+University of Toronto
+
+Narendra Chaudhari
+
+Allan Cochran
+
+University of Arkansas
+
+Daniel Cunningham
+
+Buffalo State College
+
+George Davis
+
+Georgia State University
+
+Andrzej Derdzinski
+
+The Ohio State University
+
+Norma Elias
+
+Purdue University,
+Calumet-Hammond
+
+Herbert Enderton
+
+Anthony Evans
+
+Kim Factor
+
+Marquette University
+
+Margaret Fleck
+
+Peter Gillespie
+
+Fayetteville State University
+
+Johannes Hattingh
+
+Georgia State University
+
+Ronald Dotzel
+
+Ken Holladay
+
+University of Missouri-St. Louis
+
+University of New Orleans
+
+Norliza Katuk
+
+University of Utara Malaysia
+
+William Klostermeyer
+
+Przemo Kranz
+
+University of Mississippi
+
+Jaromy Kuhl
+
+University of West Florida
+
+Loredana Lanzani
+
+Steven Leonhardi
+
+Winona State University
+
+Xu Liutong
+
+Beijing University of Posts and
+Telecommunications
+
+Vladimir Logvinenko
+
+De Anza Community College
+
+University of Illinois, Champaign
+
+University of Arkansas, Fayetteville
+
+\x0cP1: 1/1
+
+P2: 1/2
+
+QC: 1/1
+
+T1: 2
+
+FRONT-7T
+
+Rosen-2311T MHIA017-Rosen-v5.cls
+
+May 13, 2011
+
+10:21
+
+Preface
+
+xv
+
+Darrell Minor
+
+Columbus State Community College
+
+Auburn University
+
+Keith Olson
+
+Utah Valley University
+
+Yongyuth Permpoontanalarp
+King Mongkuts University of
+Technology, Thonburi
+
+Chris Rodger
+
+Sukhit Singh
+
+David Snyder
+
+Texas State University, San Marcos
+
+Queens College
+
+Texas State University, San Marcos
+
+Christopher Swanson
+Ashland University
+
+Bon Sy
+
+Matthew Walsh
+
+Indiana-Purdue University, Fort
+Wayne
+
+Gideon Weinstein
+
+Western Governors University
+
+Galin Piatniskaia
+
+Wasin So
+
+University of Missouri, St. Louis
+
+San Jose State University
+
+Stefan Robila
+
+Bogdan Suceava
+
+David Wilczynski
+
+Montclair State University
+
+California State University, Fullerton
+
+University of Southern California
+
+I would like to thank Bill Stenquist, Executive Editor, for his advocacy, enthusiasm, and
+support. His assistance with this edition has been essential. I would also like to thank the original
+editor, Wayne Yuhasz, whose insights and skills helped ensure the books success, as well as all
+the many other previous editors of this book.
+
+I want to express my appreciation to the staff of RPK Editorial Services for their valuable
+work on this edition, including Rose Kernan, who served as both the developmental editor and
+the production editor, and the other members of the RPK team, Fred Dahl, Martha McMaster,
+Erin Wagner, Harlan James, and Shelly Gerger-Knecthl. I thank Paul Mailhot of PreTeX, Inc.,
+the compositor, for the tremendous amount to work he devoted to producing this edition, and
+for his intimate knowledge of LaTeX. Thanks also to Danny Meldung of Photo Affairs, Inc.,
+who was resourceful obtaining images for the new biographical footnotes.
+
+The accuracy and quality of this new edition owe much to Jerry Grossman and Jean-Claude
+Evard, who checked the entire manuscript for technical accuracy and Georgia Mederer, who
+checked the accuracy of the answers at the end of the book and the solutions in the Students
+Solutions Guide and Instructors Resource Guide. As usual, I cannot thank Jerry Grossman
+enough for all his work authoring these two essential ancillaries.
+
+I would also express my appreciation the Science, Engineering, and Mathematics (SEM)
+Division of McGraw-Hill Higher Education for their valuable support for this new edition and
+the associated media content. In particular, thanks go to Kurt Strand: President, SEM, McGraw-
+Hill Higher Education, Marty Lange: Editor-in-Chief, SEM, Michael Lange: Editorial Director,
+Raghothaman Srinivasan: Global Publisher, Bill Stenquist: Executive Editor, Curt Reynolds:
+Executive Marketing Manager, Robin A. Reed: Project Manager, Sandy Ludovissey: Buyer,
+Lorraine Buczek: In-house Developmental Editor, Brenda Rowles: Design Coordinator, Carrie
+K. Burger: Lead Photo Research Coordinator, and Tammy Juran: Media Project Manager.
+
+Kenneth H. Rosen
+
+\x0cP1: 1/1
+
+P2: 1/2
+
+QC: 1/1
+
+T1: 2
+
+FRONT-7T
+
+Rosen-2311T MHIA017-Rosen-v5.cls
+
+May 13, 2011
+
+10:21
+
+The Companion Website
+
+The extensive companion website accompanying this text has been substantially enhanced
+
+for the seventh edition This website is accessible at www.mhhe.com/rosen. The homepage
+shows the Information Center, and contains login links for the sites Student Site and Instructor
+Site. Key features of each area are described below:
+
+THE INFORMATION CENTER
+
+The Information Center contains basic information about the book including the expanded
+table of contents (including subsection heads), the preface, descriptions of the ancillaries, and
+a sample chapter. It also provides a link that can be used to submit errata reports and other
+feedback about the book.
+
+STUDENT SITE
+
+The Student site contains a wealth of resources available for student use, including the
+
+following, tied into the text wherever the special icons displayed below are found in the text:
+
+(cid:2) Extra Examples You can nd a large number of additional examples on the site, covering
+all chapters of the book. These examples are concentrated in areas where students often
+ask for additional material. Although most of these examples amplify the basic concepts,
+more-challenging examples can also be found here.
+
+(cid:2) Interactive Demonstration Applets
+
+These applets enable you to interactively explore
+how important algorithms work, and are tied directly to material in the text with linkages to
+examples and exercises. Additional resources are provided on how to use and apply these
+applets.
+
+(cid:2) Self Assessments
+
+These interactive guides help you assess your understanding of 14 key
+concepts, providing a question bank where each question includes a brief tutorial followed
+by a multiple-choice question. If you select an incorrect answer, advice is provided to help
+you understand your error. Using these Self Assessments, you should be able to diagnose
+your problems and nd appropriate help.
+
+(cid:2) Web Resources Guide This guide provides annotated links to hundreds of external websites
+containing relevant material such as historical and biographical information, puzzles and
+problems, discussions, applets, programs, and more. These links are keyed to the text by page
+number.
+
+Additional resources in the Student site include:
+
+(cid:2) Exploring Discrete Mathematics This ancillary provides help for using a computer alge-
+bra system to do a wide range of computations in discrete mathematics. Each chapter provides
+a description of relevant functions in the computer algebra system and how they are used, pro-
+grams to carry out computations in discrete mathematics, examples, and exercises that can be
+worked using this computer algebra system. Two versions, Exploring Discrete Mathematics
+with MapleTM and Exploring Discrete Mathematics with MathematicaTM will be available.
+This ancillary contains 24 chapterseach with
+its own set of exercisespresenting a wide variety of interesting and important applications
+
+(cid:2) Applications of Discrete Mathematics
+
+xvi
+
+\x0cP1: 1/1
+
+P2: 1/2
+
+QC: 1/1
+
+T1: 2
+
+FRONT-7T
+
+Rosen-2311T MHIA017-Rosen-v5.cls
+
+May 13, 2011
+
+10:21
+
+The Companion Website
+
+xvii
+
+covering three general areas in discrete mathematics: discrete structures, combinatorics, and
+graph theory. These applications are ideal for supplementing the text or for independent study.
+
+(cid:2) A Guide to Proof-Writing
+
+This guide provides additional help for writing proofs, a skill
+that many students nd difcult to master. By reading this guide at the beginning of the
+course and periodically thereafter when proof writing is required, you will be rewarded as
+your proof-writing ability grows. (Also available in the Students Solutions Guide.)
+
+(cid:2) Common Mistakes in Discrete Mathematics
+
+This guide includes a detailed list of com-
+mon misconceptions that students of discrete mathematics often have and the kinds of errors
+they tend to make. You are encouraged to review this list from time to time to help avoid these
+common traps. (Also available in the Students Solutions Guide.)
+
+(cid:2) Advice on Writing Projects This guide offers helpful hints and suggestions for the Writing
+Projects in the text, including an extensive bibliography of helpful books and articles for
+research; discussion of various resources available in print and online; tips on doing library
+research; and suggestions on how to write well. (Also available in the Students Solutions
+Guide.)
+
+(cid:2) The Virtual Discrete Mathematics Tutor This extensive ancillary provides students with
+valuable assistance as they make the transition from lower-level courses to discrete mathemat-
+ics. The errors students have made when studying discrete mathematics using this text has been
+analyzed to design this resource. Students will be able to get many of their questions answered
+and can overcome many obstacles via this ancillaries. The Virtual Discrete Mathematics Tutor
+is expected to be available in the fall of 2012.
+
+INSTRUCTOR SITE
+
+This part of the website provides access to all of the resources on the Student Site, as well as
+these resources for instructors:
+
+(cid:2) Suggested Syllabi Detailed course outlines are shown, offering suggestions for courses
+
+with different emphases and different student backgrounds and ability levels.
+
+(cid:2) Teaching Suggestions
+
+This guide contains detailed teaching suggestions for instructors,
+including chapter overviews for the entire text, detailed remarks on each section, and comments
+on the exercise sets.
+
+(cid:2) Printable Tests
+
+Printable tests are offered in TeX and Word format for every chapter, and
+
+can be customized by instructors.
+
+(cid:2) PowerPoints Lecture Slides and PowerPoint Figures and Tables An extensive collection
+of PowerPoint slides for all chapters of the text are provided for instructor use. In addition,
+images of all gures and tables from the text are provided as PowerPoint slides.
+
+(cid:2) Homework Delivery System An extensive homework delivery system, under development
+for availability in fall 2012, will provide questions tied directly to the text, so that students
+will be able to do assignments on-line. Moreover, they will be able to use this system in a
+tutorial mode. This system will be able to automatically grade assignments, and deliver free-
+form student input to instructors for their own analysis. Course management capabilities will
+be provided that will allow instructors to create assignments, automatically assign and grade
+homework, quiz, and test questions from a bank of questions tied directly to the text, create
+and edit their own questions, manage course announcements and due dates, and track student
+progress.
+
+\x0cP1: 1/1
+
+P2: 1/2
+
+QC: 1/1
+
+T1: 2
+
+FRONT-7T
+
+Rosen-2311T MHIA017-Rosen-v5.cls
+
+May 13, 2011
+
+10:21
+
+To the Student
+
+What is discrete mathematics? Discrete mathematics is the part of mathematics devoted to
+
+the study of discrete objects. (Here discrete means consisting of distinct or unconnected
+
+elements.) The kinds of problems solved using discrete mathematics include:
+
+(cid:2) How many ways are there to choose a valid password on a computer system?
+(cid:2) What is the probability of winning a lottery?
+(cid:2) Is there a link between two computers in a network?
+(cid:2) How can I identify spam e-mail messages?
+(cid:2) How can I encrypt a message so that no unintended recipient can read it?
+(cid:2) What is the shortest path between two cities using a transportation system?
+(cid:2) How can a list of integers be sorted so that the integers are in increasing order?
+(cid:2) How many steps are required to do such a sorting?
+(cid:2) How can it be proved that a sorting algorithm correctly sorts a list?
+(cid:2) How can a circuit that adds two integers be designed?
+(cid:2) How many valid Internet addresses are there?
+
+You will learn the discrete structures and techniques needed to solve problems such as these.
+
+More generally, discrete mathematics is used whenever objects are counted, when relation-
+ships between nite (or countable) sets are studied, and when processes involving a nite number
+of steps are analyzed. A key reason for the growth in the importance of discrete mathematics is
+that information is stored and manipulated by computing machines in a discrete fashion.
+
+WHY STUDY DISCRETE MATHEMATICS?
+There are several important reasons for
+studying discrete mathematics. First, through this course you can develop your mathematical
+maturity: that is, your ability to understand and create mathematical arguments. You will not get
+very far in your studies in the mathematical sciences without these skills.
+
+Second, discrete mathematics is the gateway to more advanced courses in all parts of
+the mathematical sciences. Discrete mathematics provides the mathematical foundations for
+many computer science courses including data structures, algorithms, database theory, automata
+theory, formal languages, compiler theory, computer security, and operating systems. Students
+nd these courses much more difcult when they have not had the appropriate mathematical
+foundations from discrete math. One student has sent me an e-mail message saying that she
+used the contents of this book in every computer science course she took!
+
+Math courses based on the material studied in discrete mathematics include logic, set theory,
+number theory, linear algebra, abstract algebra, combinatorics, graph theory, and probability
+theory (the discrete part of the subject).
+
+Also, discrete mathematics contains the necessary mathematical background for solving
+problems in operations research (including many discrete optimization techniques), chemistry,
+engineering, biology, and so on. In the text, we will study applications to some of these areas.
+Many students nd their introductory discrete mathematics course to be signicantly more
+challenging than courses they have previously taken. One reason for this is that one of the
+primary goals of this course is to teach mathematical reasoning and problem solving, rather
+than a discrete set of skills. The exercises in this book are designed to reect this goal. Although
+there are plenty of exercises in this text similar to those addressed in the examples, a large
+
+xviii
+
+\x0cP1: 1/1
+
+P2: 1/2
+
+QC: 1/1
+
+T1: 2
+
+FRONT-7T
+
+Rosen-2311T MHIA017-Rosen-v5.cls
+
+May 13, 2011
+
+10:21
+
+To the Student
+
+xix
+
+percentage of the exercises require original thought. This is intentional. The material discussed
+in the text provides the tools needed to solve these exercises, but your job is to successfully
+apply these tools using your own creativity. One of the primary goals of this course is to learn
+how to attack problems that may be somewhat different from any you may have previously
+seen. Unfortunately, learning how to solve only particular types of exercises is not sufcient for
+success in developing the problem-solving skills needed in subsequent courses and professional
+work. This text addresses many different topics, but discrete mathematics is an extremely diverse
+and large area of study. One of my goals as an author is to help you develop the skills needed
+to master the additional material you will need in your own future pursuits.
+
+THE EXERCISES
+I would like to offer some advice about how you can best learn discrete
+mathematics (and other subjects in the mathematical and computing sciences).You will learn the
+most by actively working exercises. I suggest that you solve as many as you possibly can. After
+working the exercises your instructor has assigned, I encourage you to solve additional exercises
+such as those in the exercise sets following each section of the text and in the supplementary
+exercises at the end of each chapter. (Note the key explaining the markings preceding exercises.)
+
+Key to the Exercises
+
+no marking
+
+
+
+
+A routine exercise
+A difcult exercise
+An extremely challenging exercise
+An exercise containing a result used in the book (Table 1 on the
+following page shows where these exercises are used.)
+
+(Requires calculus ) An exercise whose solution requires the use of limits or concepts
+
+from differential or integral calculus
+
+The best approach is to try exercises yourself before you consult the answer section at the
+end of this book. Note that the odd-numbered exercise answers provided in the text are answers
+only and not full solutions; in particular, the reasoning required to obtain answers is omitted in
+these answers. The Students Solutions Guide, available separately, provides complete, worked
+solutions to all odd-numbered exercises in this text. When you hit an impasse trying to solve an
+odd-numbered exercise, I suggest you consult the Students Solutions Guide and look for some
+guidance as to how to solve the problem. The more work you do yourself rather than passively
+reading or copying solutions, the more you will learn. The answers and solutions to the even-
+numbered exercises are intentionally not available from the publisher; ask your instructor if you
+have trouble with these.
+
+WEB RESOURCES
+You are strongly encouraged to take advantage of additional re-
+sources available on the Web, especially those on the companion website for this book found
+at www.mhhe.com/rosen. You will nd many Extra Examples designed to clarify key concepts;
+Self Assessments for gauging how well you understand core topics; Interactive Demonstration
+Applets exploring key algorithms and other concepts; a Web Resources Guide containing an
+extensive selection of links to external sites relevant to the world of discrete mathematics; extra
+explanations and practice to help you master core concepts; added instruction on writing proofs
+and on avoiding common mistakes in discrete mathematics; in-depth discussions of important
+applications; and guidance on utilizing MapleTM software to explore the computational aspects
+of discrete mathematics. Places in the text where these additional online resources are available
+are identied in the margins by special icons. You will also nd (after fall 2012) the Virtual
+Discrete Mathematics Tutor, an on-line resource that provides extra support to help you make
+the transition from lower level courses to discrete mathematics. This tutorial should help answer
+many of your questions and correct errors that you may make, based on errors other students
+using this book, have made. For more details on these and other online resources, see the
+description of the companion website immediately preceding this To the Student message.
+
+\x0c'

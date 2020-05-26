@@ -1,0 +1,381 @@
+Modified precision 
+Brevity penalty 
+The final BLEU score 
+
+At testing time 
+Training the NMT 
+Inference with NMT 
+The BLEU score  evaluating the machine translation systems 
+
+327
+328
+329
+330
+331
+331
+332
+Implementing an NMT from scratch  a German to English translator  332
+333
+333
+335
+335
+338
+340
+342
+
+Introduction to data 
+Preprocessing data 
+Learning word embeddings 
+Defining the encoder and the decoder 
+Defining the end-to-end output calculation 
+Some translation results 
+
+Training an NMT jointly with word embeddings 
+
+Maximizing matchings between the dataset vocabulary and the  
+pretrained embeddings 
+Defining the embeddings layer as a TensorFlow variable 
+
+Improving NMTs 
+Teacher forcing 
+Deep LSTMs 
+
+Attention 
+
+Breaking the context vector bottleneck 
+The attention mechanism in detail 
+Implementing the attention mechanism 
+Defining weights 
+Computing attention 
+
+Some translation results  NMT with attention 
+Visualizing attention for source and target sentences 
+
+Other applications of Seq2Seq models  chatbots 
+
+Training a chatbot 
+Evaluating chatbots  Turing test 
+
+Summary 
+
+Chapter 11: Current Trends and the Future of  
+Natural Language Processing 
+
+Current trends in NLP 
+Word embeddings 
+Region embedding 
+Probabilistic word embedding 
+Ensemble embedding 
+Topic embedding 
+
+Neural Machine Translation (NMT) 
+
+[ viii ]
+
+343
+345
+348
+348
+350
+351
+351
+352
+356
+356
+357
+359
+361
+363
+364
+365
+366
+
+369
+370
+370
+370
+374
+375
+375
+376
+
+Table of Contents\x0cImproving the attention mechanism 
+Hybrid MT models 
+
+Penetration into other research fields 
+Combining NLP with computer vision 
+
+Visual Question Answering (VQA) 
+Caption generation for images with attention 
+
+Reinforcement learning 
+
+Teaching agents to communicate using their own language 
+Dialogue agents with reinforcement learning 
+Generative Adversarial Networks for NLP 
+
+Towards Artificial General Intelligence 
+
+One Model to Learn Them All 
+A joint many-task model  growing a neural network for multiple  
+NLP tasks 
+
+First level  word-based tasks 
+Second level  syntactic tasks 
+Third level  semantic-level tasks 
+
+NLP for social media 
+
+Detecting rumors in social media 
+Detecting emotions in social media 
+Analyzing political framing in tweets 
+
+New tasks emerging 
+Detecting sarcasm 
+Language grounding 
+Skimming text with LSTMs 
+
+Newer machine learning models 
+
+Phased LSTM 
+Dilated Recurrent Neural Networks (DRNNs) 
+
+Summary 
+References 
+
+Appendix: Mathematical Foundations and  
+Advanced TensorFlow 
+Basic data structures 
+
+Scalar 
+Vectors 
+Matrices 
+Indexing of a matrix 
+
+Special types of matrices 
+
+Identity matrix 
+Diagonal matrix 
+Tensors 
+
+Tensor/matrix operations 
+
+[ ix ]
+
+376
+376
+378
+378
+379
+381
+381
+382
+383
+384
+386
+386
+
+389
+389
+389
+390
+391
+391
+391
+393
+393
+393
+394
+395
+395
+396
+397
+398
+398
+
+403
+403
+403
+404
+404
+405
+406
+406
+407
+407
+407
+
+Table of Contents\x0cTranspose 
+Multiplication 
+Element-wise multiplication 
+Inverse 
+Finding the matrix inverse  Singular Value Decomposition (SVD) 
+Norms 
+Determinant 
+
+Probability 
+
+Random variables 
+Discrete random variables 
+Continuous random variables 
+The probability mass/density function 
+Conditional probability 
+Joint probability 
+Marginal probability 
+Bayes\' rule 
+
+Introduction to Keras 
+Introduction to the TensorFlow seq2seq library 
+
+Defining embeddings for the encoder and decoder 
+Defining the encoder 
+Defining the decoder 
+
+Visualizing word embeddings with TensorBoard 
+
+Starting TensorBoard 
+Saving word embeddings and visualizing via TensorBoard 
+
+Summary 
+
+Other Books You May Enjoy 
+Index 
+
+407
+408
+409
+409
+411
+412
+412
+413
+413
+413
+414
+414
+417
+417
+417
+418
+418
+421
+421
+422
+422
+424
+424
+425
+429
+431
+437
+
+[ x ]
+
+Table of Contents\x0cPreface
+
+In the digital information age that we live in, the amount of data has grown 
+exponentially, and it is growing at an unprecedented rate as we read this. Most of 
+this data is language-related data (textual or verbal), such as emails, social media 
+posts, phone calls, and web articles. Natural Language Processing (NLP) leverages 
+this data efficiently to help humans in their businesses or day-to-day tasks. NLP has 
+already revolutionized the way we use data to improve both businesses and our 
+lives, and will continue to do so in the future.
+
+One of the most ubiquitous use cases of NLP is Virtual Assistants (VAs), such as 
+Apple\'s Siri, Google Assistant, and Amazon Alexa. Whenever you ask your VA 
+for "the cheapest rates for hotels in Switzerland," a complex series of NLP tasks are 
+triggered. First, your VA needs to understand (parse) your request (for example, 
+learn that it needs to retrieve hotel rates, not the dog parks). Another decision the 
+VA needs to make is "what is cheap?". Next, the VA needs to rank the cities in 
+Switzerland (perhaps based on your past traveling history). Then, the VA might 
+crawl websites such as Booking.com and Agoda.com to fetch the hotel rates in 
+Switzerland and rank them by analyzing both the rates and reviews for each hotel. 
+As you can see, the results you see in a few seconds are a result of a very intricate 
+series of complex NLP tasks.
+
+So, what makes such NLP tasks so versatile and accurate for our everyday tasks? The 
+underpinning elements are "deep learning" algorithms. Deep learning algorithms 
+are essentially complex neural networks that can map raw data to a desired output 
+without requiring any sort of task-specific feature engineering. This means that you 
+can provide a hotel review of a customer and the algorithm can answer the question 
+"How positive is the customer about this hotel?", directly. Also, deep learning has 
+already reached, and even exceeded, human-level performance in a variety of NLP 
+tasks (for example, speech recognition and machine translation).
+
+[ xi ]
+
+\x0cBy reading this book, you will learn how to solve many interesting NLP problems 
+using deep learning. So, if you want to be an influencer who changes the world, 
+studying NLP is critical. These tasks range from learning the semantics of words, to 
+generating fresh new stories, to performing language translation just by looking at 
+bilingual sentence pairs. All of the technical chapters are accompanied by exercises, 
+including step-by-step guidance for readers to implement these systems. For all 
+of the exercises in the book, we will be using Python with TensorFlowa popular 
+distributed computation library that makes implementing deep neural networks 
+very convenient.
+
+Who this book is for
+This book is for aspiring beginners who are seeking to transform the world by 
+leveraging linguistic data. This book will provide you with a solid practical foundation 
+for solving NLP tasks. In this book, we will cover various aspects of NLP, focusing 
+more on the practical implementation than the theoretical foundation. Having sound 
+practical knowledge of solving various NLP tasks will help you to have a smoother 
+transition when learning the more advanced theoretical aspects of these methods. In 
+addition, a solid practical understanding will help when performing more domain-
+specific tuning of your algorithms, to get the most out of a particular domain.
+
+What this book covers
+Chapter 1, Introduction to Natural Language Processing, embarks us on our journey 
+with a gentle introduction to NLP. In this chapter, we will first look at the reasons 
+we need NLP. Next, we will discuss some of the common subtasks found in NLP. 
+Thereafter, we will discuss the two main eras of NLPthe traditional era and 
+the deep learning era. We will gain an understanding of the characteristics of the 
+traditional era by working through how a language modeling task might have 
+been solved with traditional algorithms. Then, we will discuss the deep learning 
+era, where deep learning algorithms are heavily utilized for NLP. We will also 
+discuss the main families of deep learning algorithms. We will then discuss the 
+fundamentals of one of the most basic deep learning algorithmsa fully connected 
+neural network. We will conclude the chapter with a road map that provides a brief 
+introduction to the coming chapters.
+
+[ xii ]
+
+Preface\x0cChapter 2, Understanding TensorFlow, introduces you to the Python TensorFlow 
+librarythe primary platform we will implement our solutions on. We will start by 
+writing code to perform a simple calculation in TensorFlow. We will then discuss 
+how things are executed, starting from running the code to getting results. Thereby, 
+we will understand the underlying components of TensorFlow in detail. We will 
+further strengthen our understanding of TensorFlow with a colorful analogy of a 
+restaurant and see how orders are fulfilled. Later, we will discuss more technical 
+details of TensorFlow, such as the data structures and operations (mostly related 
+to neural networks) defined in TensorFlow. Finally, we will implement a fully 
+connected neural network to recognize handwritten digits. This will help us to 
+understand how an end-to-end solution might be implemented with TensorFlow.
+
+Chapter 3, Word2vec  Learning Word Embeddings, begins by discussing how to solve 
+NLP tasks with TensorFlow. In this chapter, we will see how neural networks can be 
+used to learn word vectors or word representations. Word vectors are also known as 
+word embeddings. Word vectors are numerical representations of words that have 
+similar values for similar words and different values for different words. First, we 
+will discuss several traditional approaches to achieving this, which include using a 
+large human-built knowledge base known as WordNet. Then, we will discuss the 
+modern neural network-based approach known as Word2vec, which learns word 
+vectors without any human intervention. We will first understand the mechanics 
+of Word2vec by working through a hands-on example. Then, we will discuss two 
+algorithmic variants for achieving thisthe skip-gram and continuous bag-of-words 
+(CBOW) model. We will discuss the conceptual details of the algorithms, as well as 
+how to implement them in TensorFlow.
+
+Chapter 4, Advance Word2vec, takes us on to more advanced topics related to word 
+vectors. First, we will compare skip-gram and CBOW to see whether a winner 
+exists. Next, we will discuss several improvements that can be used to improve 
+the performance of the Word2vec algorithms. Then, we will discuss a more 
+recent and powerful word embedding learning algorithmthe GloVe (global 
+vectors) algorithm. Finally, we will look at word vectors in action, in a document 
+classification task. In that exercise, we will see that word vectors are powerful 
+enough to represent the topic (for example, entertainment and sport) that the 
+document belongs to.
+
+[ xiii ]
+
+Preface\x0c'

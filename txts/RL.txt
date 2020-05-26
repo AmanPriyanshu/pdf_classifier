@@ -1,0 +1,460 @@
+Preface to the Second Edition
+
+xv
+
+. These can be omitted on rst reading without creating problems later on. Some
+
+to indicate that they are more advanced and not
+
+with a
+exercises are also marked with a
+essential to understanding the basic material of the chapter.
+
+
+
+Most chapters end with a section entitled Bibliographical and Historical Remarks,
+wherein we credit the sources of the ideas presented in that chapter, provide pointers to
+further reading and ongoing research, and describe relevant historical background. Despite
+our attempts to make these sections authoritative and complete, we have undoubtedly left
+out some important prior work. For that we again apologize, and we welcome corrections
+and extensions for incorporation into the electronic version of the book.
+
+Like the rst edition, this edition of the book is dedicated to the memory of A. Harry
+Klopf. It was Harry who introduced us to each other, and it was his ideas about the brain
+and articial intelligence that launched our long excursion into reinforcement learning.
+Trained in neurophysiology and long interested in machine intelligence, Harry was a
+senior scientist a\x00liated with the Avionics Directorate of the Air Force O\x00ce of Scientic
+Research (AFOSR) at Wright-Patterson Air Force Base, Ohio. He was dissatised with
+the great importance attributed to equilibrium-seeking processes, including homeostasis
+and error-correcting pattern classication methods, in explaining natural intelligence
+and in providing a basis for machine intelligence. He noted that systems that try to
+maximize something (whatever that might be) are qualitatively dierent from equilibrium-
+seeking systems, and he argued that maximizing systems hold the key to understanding
+important aspects of natural intelligence and for building articial intelligences. Harry was
+instrumental in obtaining funding from AFOSR for a project to assess the scientic merit
+of these and related ideas. This project was conducted in the late 1970s at the University
+of Massachusetts Amherst (UMass Amherst), initially under the direction of Michael
+Arbib, William Kilmer, and Nico Spinelli, professors in the Department of Computer
+and Information Science at UMass Amherst, and founding members of the Cybernetics
+Center for Systems Neuroscience at the University, a farsighted group focusing on the
+intersection of neuroscience and articial intelligence. Barto, a recent Ph.D. from the
+University of Michigan, was hired as post doctoral researcher on the project. Meanwhile,
+Sutton, an undergraduate studying computer science and psychology at Stanford, had
+been corresponding with Harry regarding their mutual interest in the role of stimulus
+timing in classical conditioning. Harry suggested to the UMass group that Sutton would
+be a great addition to the project. Thus, Sutton became a UMass graduate student,
+whose Ph.D. was directed by Barto, who had become an Associate Professor. The study
+of reinforcement learning as presented in this book is rightfully an outcome of that
+project instigated by Harry and inspired by his ideas. Further, Harry was responsible
+for bringing us, the authors, together in what has been a long and enjoyable interaction.
+By dedicating this book to Harry we honor his essential contributions, not only to the
+eld of reinforcement learning, but also to our collaboration. We also thank Professors
+Arbib, Kilmer, and Spinelli for the opportunity they provided to us to begin exploring
+these ideas. Finally, we thank AFOSR for generous support over the early years of our
+research, and the NSF for its generous support over many of the following years.
+
+We have very many people to thank for their inspiration and help with this second
+edition. Everyone we acknowledged for their inspiration and help with the rst edition
+
+\x0cxvi
+
+Preface to the Second Edition
+
+deserve our deepest gratitude for this edition as well, which would not exist were it not
+for their contributions to edition number one. To that long list we must add many others
+who contributed specically to the second edition. Our students over the many years that
+we have taught this material contributed in countless ways: exposing errors, oering xes,
+andnot the leastbeing confused in places where we could have explained things better.
+We especially thank Martha Steenstrup for reading and providing detailed comments
+throughout. The chapters on psychology and neuroscience could not have been written
+without the help of many experts in those elds. We thank John Moore for his patient
+tutoring over many many years on animal learning experiments, theory, and neuroscience,
+and for his careful reading of multiple drafts of Chapters 14 and 15. We also thank Matt
+Botvinick, Nathaniel Daw, Peter Dayan, and Yael Niv for their penetrating comments on
+drafts of these chapter, their essential guidance through the massive literature, and their
+interception of many of our errors in early drafts. Of course, the remaining errors in these
+chaptersand there must still be someare totally our own. We thank Phil Thomas for
+helping us make these chapters accessible to non-psychologists and non-neuroscientists,
+and we thank Peter Sterling for helping us improve the exposition. We are grateful to Jim
+Houk for introducing us to the subject of information processing in the basal ganglia and
+for alerting us to other relevant aspects of neuroscience. Jose Martnez, Terry Sejnowski,
+David Silver, Gerry Tesauro, Georgios Theocharous, and Phil Thomas generously helped
+us understand details of their reinforcement learning applications for inclusion in the
+case-studies chapter, and they provided helpful comments on drafts of these sections.
+Special thanks are owed to David Silver for helping us better understand Monte Carlo
+Tree Search and the DeepMind Go-playing programs. We thank George Konidaris for his
+help with the section on the Fourier basis. Emilio Cartoni, Thomas Cederborg, Stefan
+Dernbach, Clemens Rosenbaum, Patrick Taylor, Thomas Colin, and Pierre-Luc Bacon
+helped us in a number important ways for which we are most grateful.
+
+Sutton would also like to thank the members of the Reinforcement Learning and
+Articial Intelligence laboratory at the University of Alberta for contributions to the
+second edition. He owes a particular debt to Rupam Mahmood for essential contributions
+to the treatment of o-policy Monte Carlo methods in Chapter 5, to Hamid Maei for
+helping develop the perspective on o-policy learning presented in Chapter 11, to Eric
+Graves for conducting the experiments in Chapter 13, to Shangtong Zhang for replicating
+and thus verifying almost all the experimental results, to Kris De Asis for improving
+the new technical content of Chapters 7 and 12, and to Harm van Seijen for insights
+that led to the separation of n-step methods from eligibility traces and (along with Hado
+van Hasselt) for the ideas involving exact equivalence of forward and backward views of
+eligibility traces presented in Chapter 12. Sutton also gratefully acknowledges the support
+and freedom he was granted by the Government of Alberta and the National Science and
+Engineering Research Council of Canada throughout the period during which the second
+edition was conceived and written. In particular, he would like to thank Randy Goebel
+for creating a supportive and far-sighted environment for research in Alberta. He would
+also like to thank DeepMind their support in the last six months of writing the book.
+
+Finally, we owe thanks to the many careful readers of drafts of the second edition that
+we posted on the internet. They found many errors that we had missed and alerted us to
+potential points of confusion.
+
+\x0cPreface to the First Edition
+
+We rst came to focus on what is now known as reinforcement learning in late 1979. We
+were both at the University of Massachusetts, working on one of the earliest projects to
+revive the idea that networks of neuronlike adaptive elements might prove to be a promising
+approach to articial adaptive intelligence. The project explored the heterostatic theory
+of adaptive systems developed by A. Harry Klopf. Harrys work was a rich source of
+ideas, and we were permitted to explore them critically and compare them with the long
+history of prior work in adaptive systems. Our task became one of teasing the ideas apart
+and understanding their relationships and relative importance. This continues today,
+but in 1979 we came to realize that perhaps the simplest of the ideas, which had long
+been taken for granted, had received surprisingly little attention from a computational
+perspective. This was simply the idea of a learning system that wants something, that
+adapts its behavior in order to maximize a special signal from its environment. This
+was the idea of a hedonistic learning system, or, as we would say now, the idea of
+reinforcement learning.
+
+Like others, we had a sense that reinforcement learning had been thoroughly explored
+in the early days of cybernetics and articial intelligence. On closer inspection, though,
+we found that it had been explored only slightly. While reinforcement learning had clearly
+motivated some of the earliest computational studies of learning, most of these researchers
+had gone on to other things, such as pattern classication, supervised learning, and
+adaptive control, or they had abandoned the study of learning altogether. As a result, the
+special issues involved in learning how to get something from the environment received
+relatively little attention. In retrospect, focusing on this idea was the critical step that
+set this branch of research in motion. Little progress could be made in the computational
+study of reinforcement learning until it was recognized that such a fundamental idea had
+not yet been thoroughly explored.
+
+The eld has come a long way since then, evolving and maturing in several directions.
+Reinforcement learning has gradually become one of the most active research areas in ma-
+chine learning, articial intelligence, and neural network research. The eld has developed
+strong mathematical foundations and impressive applications. The computational study
+of reinforcement learning is now a large eld, with hundreds of active researchers around
+the world in diverse disciplines such as psychology, control theory, articial intelligence,
+and neuroscience. Particularly important have been the contributions establishing and
+developing the relationships to the theory of optimal control and dynamic programming.
+
+xvii
+
+\x0cxviii
+
+Preface to the First Edition
+
+The overall problem of learning from interaction to achieve goals is still far from being
+solved, but our understanding of it has improved signicantly. We can now place compo-
+nent ideas, such as temporal-dierence learning, dynamic programming, and function
+approximation, within a coherent perspective with respect to the overall problem.
+
+Our goal in writing this book was to provide a clear and simple account of the key
+ideas and algorithms of reinforcement learning. We wanted our treatment to be accessible
+to readers in all of the related disciplines, but we could not cover all of these perspectives
+in detail. For the most part, our treatment takes the point of view of articial intelligence
+and engineering. Coverage of connections to other elds we leave to others or to another
+time. We also chose not to produce a rigorous formal treatment of reinforcement learning.
+We did not reach for the highest possible level of mathematical abstraction and did not
+rely on a theoremproof format. We tried to choose a level of mathematical detail that
+points the mathematically inclined in the right directions without distracting from the
+simplicity and potential generality of the underlying ideas.
+
+...
+In some sense we have been working toward this book for thirty years, and we have lots
+of people to thank. First, we thank those who have personally helped us develop the overall
+view presented in this book: Harry Klopf, for helping us recognize that reinforcement
+learning needed to be revived; Chris Watkins, Dimitri Bertsekas, John Tsitsiklis, and
+Paul Werbos, for helping us see the value of the relationships to dynamic programming;
+John Moore and Jim Kehoe, for insights and inspirations from animal learning theory;
+Oliver Selfridge, for emphasizing the breadth and importance of adaptation; and, more
+generally, our colleagues and students who have contributed in countless ways: Ron
+Williams, Charles Anderson, Satinder Singh, Sridhar Mahadevan, Steve Bradtke, Bob
+Crites, Peter Dayan, and Leemon Baird. Our view of reinforcement learning has been
+signicantly enriched by discussions with Paul Cohen, Paul Utgo, Martha Steenstrup,
+Gerry Tesauro, Mike Jordan, Leslie Kaelbling, Andrew Moore, Chris Atkeson, Tom
+Mitchell, Nils Nilsson, Stuart Russell, Tom Dietterich, Tom Dean, and Bob Narendra.
+We thank Michael Littman, Gerry Tesauro, Bob Crites, Satinder Singh, and Wei Zhang
+for providing specics of Sections 4.7, 15.1, 15.4, 15.4, and 15.6 respectively. We thank
+the Air Force O\x00ce of Scientic Research, the National Science Foundation, and GTE
+Laboratories for their long and farsighted support.
+
+We also wish to thank the many people who have read drafts of this book and
+provided valuable comments, including Tom Kalt, John Tsitsiklis, Pawel Cichosz, Olle
+Gallmo, Chuck Anderson, Stuart Russell, Ben Van Roy, Paul Steenstrup, Paul Cohen,
+Sridhar Mahadevan, Jette Randlov, Brian Sheppard, Thomas OConnell, Richard Coggins,
+Cristina Versino, John H. Hiett, Andreas Badelt, Jay Ponte, Joe Beck, Justus Piater,
+Martha Steenstrup, Satinder Singh, Tommi Jaakkola, Dimitri Bertsekas, Torbjorn Ekman,
+Christina Bjorkman, Jakob Carlstrom, and Olle Palmgren. Finally, we thank Gwyn
+Mitchell for helping in many ways, and Harry Stanton and Bob Prior for being our
+champions at MIT Press.
+
+\x0cSummary of Notation
+
+Capital letters are used for random variables, whereas lower case letters are used for
+the values of random variables and for scalar functions. Quantities that are required to
+be real-valued vectors are written in bold and in lower case (even if random variables).
+Matrices are bold capitals.
+
+.
+=
+
+}
+
+equality relationship that is true by denition
+approximately equal
+proportional to
+probability that a random variable X takes on the value x
+random variable X selected from distribution p(x)
+expectation of a random variable X, i.e., E[X]
+
+
+/
+X = x
+Pr
+{
+X
+p
+
+E[X]
+argmaxa f (a) a value of a at which f (a) takes its maximal value
+ln x
+ex
+R
+f : X
+
+natural logarithm of x
+the base of the natural logarithm, e
+set of real numbers
+function f from elements of set X to elements of set Y
+assignment
+the real interval between a and b including b but not including a
+
+.
+= Pr
+X = x
+{
+x p(x)x
+
+ 
+(a, b]
+
+.
+=
+
+P
+
+!
+
+
+
+Y
+
+}
+
+2.71828, carried to power x; eln x = x
+
+"
+, \x00
+\x00
+\x00
+
+predicate
+
+probability of taking a random action in an "-greedy policy
+step-size parameters
+discount-rate parameter
+decay-rate parameter for eligibility traces
+indicator function ( predicate
+
+.
+= 1 if the predicate is true, else 0)
+
+In a multi-arm bandit problem:
+k
+t
+q
+(a)
+
+Qt(a)
+Nt(a)
+Ht(a)
+t(a)
+Rt
+
+number of actions (arms)
+discrete time step or play number
+true value (expected reward) of action a
+estimate at time t of q
+number of times action a has been selected up prior to time t
+learned preference for selecting action a at time t
+probability of selecting action a at time t
+estimate at time t of the expected reward given t
+
+(a)
+
+
+
+xix
+
+\x0cxx
+
+Summary of Notation
+
+In a Markov Decision Process:
+s, s0
+a
+r
+S
+S+
+A(s)
+R
+
+states
+an action
+a reward
+set of all nonterminal states
+set of all states, including the terminal state
+set of all actions available in state s
+set of all possible rewards, a nite subset of R
+subset of; e.g., R
+is an element of; e.g., s
+number of elements in set S
+
+S, r
+
+
+
+R
+
+R
+
+2
+
+2
+
+
+2
+S
+|
+
+|
+
+t
+T, T (t)
+At
+St
+Rt
+
+(s)
+(a
+
+s)
+
+|
+
+Gt
+h
+Gt:t+n, Gt:h
+Gt:h
+G\x00
+t
+G\x00
+t:h
+t , G\x00a
+G\x00s
+t
+
+s, a)
+
+|
+s, a)
+
+p(s0, r
+p(s0
+r(s, a)
+r(s, a, s0)
+
+|
+
+v(s)
+v
+(s)
+
+q(s, a)
+(s, a)
+q
+
+
+
+V, Vt
+Q, Qt
+Vt(s)
+Ut
+
+discrete time step
+nal time step of an episode, or of the episode including time step t
+action at time t
+state at time t, typically due, stochastically, to St
+\x00
+reward at time t, typically due, stochastically, to St
+policy (decision-making rule)
+action taken in state s under deterministic policy 
+probability of taking action a in state s under stochastic policy 
+
+1
+\x00
+1 and At
+
+1 and At
+
+\x00
+
+\x00
+
+1
+
+return following time t
+horizon, the time step one looks up to in a forward view
+n-step return from t + 1 to t + n, or to h (discounted and corrected)
+at return (undiscounted and uncorrected) from t + 1 to h (Section 5.8)
+\x00-return (Section 12.1)
+truncated, corrected \x00-return (Section 12.3)
+\x00-return, corrected by estimated state, or action, values (Section 12.8)
+
+probability of transition to state s0 with reward r, from state s and action a
+probability of transition to state s0, from state s taking action a
+expected immediate reward from state s after action a
+expected immediate reward on transition from s to s0 under action a
+
+value of state s under policy  (expected return)
+value of state s under the optimal policy
+value of taking action a in state s under policy 
+value of taking action a in state s under the optimal policy
+
+array estimates of state-value function v or v
+
+array estimates of action-value function q or q
+.
+
+expected approximate action value, e.g., Vt(s)
+=
+target for estimate at time t
+
+a (a
+
+s)Qt(s, a)
+
+|
+
+P
+
+\x0c'
