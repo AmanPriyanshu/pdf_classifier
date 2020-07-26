@@ -1,5 +1,5 @@
 # pdf_classifier
-Classifies PDF's into k-folders using unsupervised learning
+Classifies PDF's into k-folders using unsupervised learning (K-Means Specifically) encoding used --> TfIdf
 
 ## Installation:
 `git clone https://github.com/AmanPriyanshu/pdf_classifier.git`
